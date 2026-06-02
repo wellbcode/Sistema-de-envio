@@ -162,7 +162,7 @@ window.addEventListener('load', () => {
         const linha = dadosExcel.find(r => String(r.Crachá) === funcional); //certo
         //const linha = dadosExcel.find(r => String(r["Crachá"]) === funcional);  //certo tbm
         //const linha = dadosExcel.find(r => Number(r["Crachá"]) === Number(funcional)); //certo tbm
-console.log("Linha encontrada:", linha);
+            console.log("Linha encontrada:", linha);
           if (linha && linha.Nome) {
               preencherCampos(linha.Nome);
               carregarImagem(linha.Nome);

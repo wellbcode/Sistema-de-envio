@@ -51,7 +51,8 @@ function aplicarEstilo(res, nome, pagina, funcional) {
     iframe.style.overflow = 'hidden';
     iframe.setAttribute('scrolling', 'no');
     //iframe.src = `${pagina}?modo=status&fun=${funcional}&nome=${encodeURIComponent(nome)}`;
-    iframe.src = `${pagina}?modo=status&fun=${funcional}&nome=${encodeURIComponent(nome)}`;
+   // iframe.src = `${pagina}?modo=status&fun=${funcional}&nome=${encodeURIComponent(nome)}`;
+   iframe.src = "/acompanhar-envio-crachas/main.html?modo=status&fun=" + funcional + "&nome=" + encodeURIComponent(nome);
    //document.body.appendChild(iframe);
    res.appendChild(iframe);
 
