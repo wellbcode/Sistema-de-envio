@@ -1,0 +1,377 @@
+/*Estilo da main.HTML*/
+html{
+    font-size: 62.5%;
+    }
+ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.upload-container {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* display: none; */
+}
+ 
+#uploadExcel {
+    display: none; /* esconde o input real */
+    align-items: center;
+}
+ 
+.btn-upload {
+    display: inline-block;
+    background-color: #ff6f00; /* laranja */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+ 
+.btn-upload:hover {
+    background-color: #ff8f33;
+}
+ 
+/* Upload e seleção */
+.upload-container {
+    text-align:center; margin-bottom:30px;
+}
+ 
+#uploadExcel {
+    display:inline-block;
+    padding:12px 25px;
+    font-size:16px;
+    border-radius:10px;
+    cursor:pointer;
+    background-color:#ff6f00;
+    color:white;
+    border:none;
+    margin-bottom:10px;
+}
+ 
+#uploadExcel:hover {
+    background-color:#ff8f33;
+}
+ 
+#selectPessoa {
+    padding:10px 20px; font-size:16px; border-radius:8px;
+}
+   
+.container{
+    margin-top: 5px;
+    margin-left: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+}
+   
+.main-container{
+    /* background-image: url(../img/desktop1.jpg); */
+    filter: drop-shadow(8px 8px 4px black);
+    position: relative;
+    /* background-image: linear-gradient(to right, #fff, orange); */
+    background: #fff;
+    /* background: transparent;
+    backdrop-filter: blur(20px); */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 950px;
+    height: 440px;    
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    margin: 100px auto;
+    /* padding: 10px 70px; */
+    margin-top: -60px;
+}
+
+body{
+    font: normal 15pt arial;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    flex-direction: row;
+    animation: changeBackgroundImage 20s infinite;
+    background-size: cover;
+    /* background: transparent;
+    backdrop-filter: blur(5px); */
+    height: 100vh;
+    align-items: center;
+    justify-content: center;    
+}
+
+@keyframes changeBackgroundImage{
+    0%{
+        background-image: url('../img/desktop1.jpg'), url('../img/desktop2.jpg');
+    }
+    25%{
+        background-image: url('../img/desktop2.jpg'), url('../img/desktop3.jpg');
+    }
+    50%{
+        background-image: url('../img/desktop4.jpg'), url('../img/desktop3.jpg');
+    }
+    75%{
+        background-image: url('../img/desktop3.jpg'), url('../img/desktop4.jpg');
+    }
+    100%{
+        background-image: url('../img/desktop1.jpg');
+    }
+}
+    
+.crachas{
+    position: relative;
+    width: 190px;
+    margin: auto;
+    border-radius: 50%;
+}
+
+ul{
+    display: flex;
+    margin-top: 10px;
+}
+
+ul li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*icones*/
+ul li .icon{
+    font-size: 35px;
+    color: #ff4732;
+    /* margin: 0 55px;  */
+    margin: 0 60px;
+}
+
+#truck{
+    transform: scaleX(-1);
+}
+
+/*Texto*/
+ul li .text {
+    font-size: 18px; /*teste apagar*/
+    font-weight: 600;
+    color: #ff4732;
+}
+
+/* Barra de progresso */
+ul li .progress{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(68, 68, 68, 0.781);
+    margin: 14px 0;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.70s ease, color 0.70s ease;
+}
+
+.progress::after{
+    content: "";
+    position: absolute;
+    width: 125px;
+    height: 5px;
+    background-color: rgba(68, 68, 68, 0.781);
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.90s ease, width 0.90s ease;
+}
+
+
+/*Inverter a animação da barra para esquerda
+.progress::after {
+    content: "";
+    position: absolute;
+    width: 125px;  largura final
+    height: 5px;
+    background-color: rgba(68, 68, 68, 0.3);
+    right: 30px; mantém a posição original
+    top: 50%;
+    transform: translateY(-50%) scaleX(0);  começa invisível
+    transform-origin: left;  anima da esquerda para a direita
+    transition: transform 0.6s ease, background-color 0.6s ease;
+} */
+
+.one::after {
+    width: 0;
+    height: 0;
+    }
+    
+ul li .progress p {
+    font-size: 18px;
+}
+
+ul li .progress .uil {
+    display: none;
+}
+
+ul li .progress.active {
+    background-color: #ff4732;
+}
+
+ul li .progress.active p {
+    display: none;
+}
+    
+ul li .progress.active .uil {
+    display: block;
+    font-size: 22px;
+    animation: fadeIn 0.30s ease-in-out;
+}
+
+li .active::after {
+    background-color: #ff4732;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; transform: scale(0.8); 
+    }
+    to {
+        opacity: 1; transform: scale(1); 
+    }
+}
+
+/* Linha horizontal (desktop) */
+.progress::after {
+    content: "";
+    position: absolute;
+    width: 125px;
+    height: 5px;
+    background-color: rgba(68, 68, 68, 0.3);
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+
+.progress.active::after {
+    background-color: #ff4732;
+    animation: fillLine 0.6s ease ;
+}
+
+/* Inverter a animação da barra para esquerda
+    .progress.active::after {
+    background-color: #ff4732;
+    transform: translateY(-50%) scaleX(1);  cresce para a direita
+}*/
+
+
+@keyframes fillLine {
+    from { width: 0; }
+    to { width: 125px; }
+}
+
+/* Remove linha do último item */
+.one::after {
+    width: 0;
+    height: 0;
+}
+
+/* Responsivo para mobile (vertical) */
+@media(max-width: 600px) {
+ul {
+    flex-direction: column;
+    margin-left: 0;
+}
+
+ul li {
+    flex-direction: row;
+    align-items: center;
+}
+
+.progress::after {
+    width: 5px;
+    height: 40px;
+    bottom: 30px;
+    left: 50%;
+    top: auto;
+    transform: translateX(-50%);
+}
+
+.progress.active::after {
+    animation: fillLineVertical 0.6s ease forwards;
+}
+
+@keyframes fillLineVertical {
+    from { height: 0; }
+    to { height: 40px; }
+}
+
+.one::after {
+    height: 0;
+}
+}
+
+ul li .active p{
+    display: none;
+}
+
+ul li .active .uil{
+    /* font-size: 20px; */
+    font-size: 30px; /*teste apagar*/
+    display: flex;
+}
+
+.truck{
+    transform: scaleX(-1);
+}
+   
+   
+@media(max-width: 600px){
+    main{
+        width: 100vw;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    .main-container{
+        padding: 0;
+        width: 100vw;
+    }
+    ul{
+        flex-direction: column;
+        margin-left: 0;
+ 
+    }
+    ul li{
+        flex-direction: row;
+    }
+    ul li .progress{
+        margin: 0 30px;
+    }
+    .progress::after{
+        width: 5px;
+        height: 40px;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+    .one::after{
+        height: 0;
+    }
+    ul li .icon{
+        font-size: 30px;
+        margin: 15px 0;
+    }
+   
+}
