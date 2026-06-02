@@ -56,7 +56,7 @@ function preencherCampos(nome) {
     const img = document.getElementById("fotoPessoa");
  
     const nomeNormalizado = normalize(nome).replace(/[^a-z]/g, '');
-     const caminhoImagem = `../pic/${nomeNormalizado}.jpg`;
+    const caminhoImagem = `pic/${nomeNormalizado}.jpg`;
  
    fetch(caminhoImagem)
       .then(res => {
@@ -122,7 +122,7 @@ window.addEventListener('load', () => {
       dadosExcel = JSON.parse(dadosSalvos);
 
       console.log("dadosSalvos:", localStorage.getItem('dadosExcel'));
-console.log("dadosExcel:", dadosExcel.length);
+      console.log("dadosExcel:", dadosExcel.length);
 
     // TESTES
       console.log("Quantidade:", dadosExcel.length);
