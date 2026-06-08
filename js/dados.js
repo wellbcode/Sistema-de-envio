@@ -90,6 +90,8 @@ function carregarImagem(nome) {
     : "./";
 
   const caminhoImagem = `${basePath}pic/${nomeNormalizado}.jpg`;
+  console.log("Nome recebido:", nome);
+console.log("Arquivo procurado:", caminhoImagem);
 
   fetch(caminhoImagem)
     .then(res => {
