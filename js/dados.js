@@ -52,27 +52,60 @@ function preencherCampos(nome) {
 }
  
   //Carrega imagem da pessoa
-   function carregarImagem(nome) {
-    const img = document.getElementById("fotoPessoa");
+//    function carregarImagem(nome) {
+//     const img = document.getElementById("fotoPessoa");
  
-    const nomeNormalizado = normalize(nome).replace(/[^a-z]/g, '');
-    const caminhoImagem = `pic/${nomeNormalizado}.jpg`;
+//     const nomeNormalizado = normalize(nome).replace(/[^a-z]/g, '');
+//     const caminhoImagem = `pic/${nomeNormalizado}.jpg`;
+    
  
-   fetch(caminhoImagem)
-      .then(res => {
-           if (res.ok) {
-                img.src = caminhoImagem;
-                img.style.display = "block";
-            } else {
-              console.warn("Imagem não encontrada:", caminhoImagem);
-                img.style.display = "none";
-            }
-         })
-         .catch(() => {
-             img.style.display = "none";
-         });
-         }
+//    fetch(caminhoImagem)
+//       .then(res => {
+//            if (res.ok) {
+//                 img.src = caminhoImagem;
+//                 img.style.display = "block";
+//             } else {
+//               console.warn("Imagem não encontrada:", caminhoImagem);
+//                 img.style.display = "none";
+//             }
+//          })
+//          .catch(() => {
+//              img.style.display = "none";
+//          });
+//          }
  
+function carregarImagem(nome) {
+  const img = document.getElementById("fotoPessoa");
+
+  // Normaliza para minúsculo, remove espaços e acentos
+  const nomeNormalizado = nome
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s/g, "")
+    .toLowerCase();
+
+  // Detecta se está rodando local (Live Server) ou no GitHub Pages
+  const basePath = window.location.hostname.includes("github.io")
+    ? "/acompanhar-envio-crachas/"
+    : "./";
+
+  const caminhoImagem = `${basePath}pic/${nomeNormalizado}.jpg`;
+
+  fetch(caminhoImagem)
+    .then(res => {
+      if (res.ok) {
+        img.src = caminhoImagem;
+        img.style.display = "block";
+      } else {
+        console.warn("Imagem não encontrada:", caminhoImagem);
+        img.style.display = "none";
+      }
+    })
+    .catch(() => {
+      img.style.display = "none";
+    });
+}
+
 // Upload Excel
 document.getElementById("uploadExcel").addEventListener("change", function(e) {
   let file = e.target.files[0];

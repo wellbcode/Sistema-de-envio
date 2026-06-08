@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body{
+    font: normal 15pt arial;
+    line-height: 1.5em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    animation: changeBackgroundImage 20s infinite;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    /* background: transparent;
+    backdrop-filter: blur(5px); */
+    /*height: 100vh;
+    align-items: center;
+    justify-content: center;    
+}*/
+ /*
+@keyframes changeBackgroundImage{
+    0%{
+        background-image: url('../img/desktop1.jpg'), url('../img/desktop2.jpg');
+    }
+    25%{
+        background-image: url('../img/desktop2.jpg'), url('../img/desktop3.jpg');
+    }
+    50%{
+        background-image: url('../img/desktop4.jpg'), url('../img/desktop3.jpg');
+    }
+    75%{
+        background-image: url('../img/desktop3.jpg'), url('../img/desktop4.jpg');
+    }
+    100%{
+        background-image: url('../img/desktop1.jpg');
+    }
+} */
+
+/* segunda parte */
+    /* VARIÁVEIS */
+:root {
+    --bg: linear-gradient(90deg, #002F6C, #e45b00);
+    --card: #ffffff;
+    --text: #333;
+}
+
+body.dark {
+    --bg: #121212;
+    --card: #1e1e1e;
+    --text: #e4e4e4;
+}
+
+/*BODY*/
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial;
+    background: var(--bg);
+    transition: 0.4s;
+}
+
+
+/* LOADING */
+#loading {
+    position: fixed;
+    inset: 0;
+    background: #002F6C;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 999;
+}
+
+/* HEADER */
+.header {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* SWITCH DARK */
+.switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+}
+
+.switch input {opacity: 0;}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #ccc;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    left: 3px;
+    transition: 0.3s;
+}
+
+input:checked + .slider {background: #FF7A00;}
+
+input:checked + .slider::before {transform: translateX(30px);}
+
+.icon {font-size: 13px;}
+.sun {opacity: 0;}
+
+input:checked + .slider .sun {opacity: 1;}
+input:checked + .slider .moon {opacity: 0;}
+
+/* CONTAINER */
+.container {
+    width: 950px;
+    margin: auto;
+    padding: 25px;
+}
+
+/* CARD */
+.card {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: var(--card);
+    color: var(--text);
+    padding: 18px 22px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    cursor: pointer;
+}
+
+.card:nth-child(1){animation-delay:0.1s;}
+.card:nth-child(2){animation-delay:0.2s;}
+.card:nth-child(3){animation-delay:0.3s;}
+.card:hover {transform: translateY(-4px) scale(1.01);}
+
+.card img {
+    width: 110px;
+    border-radius: 10px;
+}
+
+/* VARIAÇÕES */
+.info {border-left: 6px solid #007AFF;}
+.warning {border-left: 6px solid #FF7A00;}
+.final {border-left: 6px solid #999;}
+
+/* BOTÃO */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    background: #FF7A00;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #FF6300;
+    cursor: pointer;
+}
+.btn:active { transform: scale(0.95); }
+
+/* ANIMAÇÃO */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

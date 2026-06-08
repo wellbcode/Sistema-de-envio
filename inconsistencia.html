@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Um site para verificar o envio dos crachás UHF">
+    <meta name="author" content="Wellington Bertoso Santos" data-="11/08/2025">
+    <meta name="keywords" content="Crahás, html, CSS JavaScript">
+    <link rel="shortcut icon" href="img/logo_itau_varejo_92x92.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://kit.fontawesome.com/3220c0aca7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/inconsistencias.css">
+    <title>Página de crachás inconsistentes </title>
+<script src="https://kit.fontawesome.com/3220c0aca7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="loading">Carregando sistema...</div>
+ 
+<div class="header">
+    <label class="switch">
+        <input type="checkbox" id="toggleDark">
+        <span class="slider">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+        </span>
+    </label>
+</div>
+
+<div class="container">
+    <div class="card info">
+        <p>
+            ⚠️ Olá! Recebemos o seu pedido de crachá, mas identificamos que a sua foto fundo laranja não foi carregada corretamente.
+        </p>
+        <!-- <img src="image2.png"> -->
+    </div>
+
+    <div class="card warning">
+        <div>
+            <p>
+                ℹ️ Clique no botão de instruções abaixo e siga as orientações para gerar a foto e carregá-lacorretamente.
+                <br><br>
+                Se precisar de ajuda ligue no ramal: <strong>📞7703-9311</strong> ou fixo: <strong>☎️5019/8823</strong>
+            </p>
+            <a href="https://itaudigitalworkplace.my.site.com/conecta/s/atualizesuafoto"target="_blank" rel="noopener noreferrer"class="btn">Instruções</a>
+        </div>
+    </div>
+
+    <div class="card final">
+        <p>
+            ✅ Após o envio correto sua foto levará 24 horas para atualizar, e então daremos continuidade aos próximos passos.
+            Em breve seu crachá será confeccionado e enviado até você 😉
+        </p>
+    </div>
+</div>
+
+<script>
+    /* DARK MODE */
+    const toggle = document.getElementById("toggleDark");
+    toggle.addEventListener("change", () => {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("modo",
+            document.body.classList.contains("dark") ? "dark" : "light"
+        );
+    });
+
+    /* PERSISTÊNCIA */
+    window.onload = () => {
+        const modo = localStorage.getItem("modo");
+        if (modo === "dark") {
+            document.body.classList.add("dark");
+            toggle.checked = true;
+        }
+
+        /* LOADING */
+        setTimeout(() => {
+            document.getElementById("loading").style.display = "none";
+        }, 500);
+    };
+</script>
+
+</body>
+</html>
