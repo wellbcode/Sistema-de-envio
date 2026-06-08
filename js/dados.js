@@ -82,7 +82,7 @@ function carregarImagem(nome) {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/\s/g, "")
-    .toLowerCase();
+  
 
   // Detecta se está rodando local (Live Server) ou no GitHub Pages
   const basePath = window.location.hostname.includes("github.io")
@@ -90,8 +90,6 @@ function carregarImagem(nome) {
     : "./";
 
   const caminhoImagem = `${basePath}pic/${nomeNormalizado}.jpg`;
-  console.log("Nome recebido:", nome);
-console.log("Arquivo procurado:", caminhoImagem);
 
   fetch(caminhoImagem)
     .then(res => {
