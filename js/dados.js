@@ -62,7 +62,7 @@ function carregarImagem(nome) {
     .toLowerCase();
 
   const basePath = window.location.hostname.includes("github.io")
-    ? "/acompanhar-envio-demo/"
+    ? "/acompanhar-envio-demo/pic"
     : "./";
 
   const extensoes = ["jpg", "png"];
