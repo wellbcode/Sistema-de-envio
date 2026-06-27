@@ -100,7 +100,7 @@ function carregarImagem(nome) {
     .replace(/\s/g, "")
     .toLowerCase();
 
-  const basePath = "./pic/";
+  const basePath = "pic/";
   const extensoes = ["jpg", "png"];
 
   function tentarProximaExtensao(i) {
