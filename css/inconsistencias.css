@@ -195,3 +195,62 @@ input:checked + .slider .moon {opacity: 0;}
         transform: translateY(0);
     }
 }
+
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+
+    .card {
+        gap: 15px;
+    }
+
+    .card img {
+        width: 90px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .card {
+        flex-direction: column;
+        text-align: left;
+        align-items: center;
+    }
+
+    .card img {
+        width: 80px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 14px;
+    }
+
+    .card img {
+        width: 70px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 10px;
+    }
+}

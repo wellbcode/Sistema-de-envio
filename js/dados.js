@@ -51,59 +51,44 @@ function preencherCampos(nome) {
     carregarImagem(nome); // <- chamada correta
 }
  
-  //Carrega imagem da pessoa
-//    function carregarImagem(nome) {
-//     const img = document.getElementById("fotoPessoa");
- 
-//     const nomeNormalizado = normalize(nome).replace(/[^a-z]/g, '');
-//     const caminhoImagem = `pic/${nomeNormalizado}.jpg`;
-    
- 
-//    fetch(caminhoImagem)
-//       .then(res => {
-//            if (res.ok) {
-//                 img.src = caminhoImagem;
-//                 img.style.display = "block";
-//             } else {
-//               console.warn("Imagem não encontrada:", caminhoImagem);
-//                 img.style.display = "none";
-//             }
-//          })
-//          .catch(() => {
-//              img.style.display = "none";
-//          });
-//          }
- 
+//Carrega imagem da pessoa
 function carregarImagem(nome) {
   const img = document.getElementById("fotoPessoa");
 
-  // Normaliza para minúsculo, remove espaços e acentos
   const nomeNormalizado = nome
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/\s/g, "")
-  
+    .toLowerCase();
 
-  // Detecta se está rodando local (Live Server) ou no GitHub Pages
   const basePath = window.location.hostname.includes("github.io")
-    ? "/acompanhar-envio-crachas/"
+    ? "/acompanhar-envio-demo/"
     : "./";
 
-  const caminhoImagem = `${basePath}pic/${nomeNormalizado}.jpg`;
+  const extensoes = ["jpg", "png"];
 
-  fetch(caminhoImagem)
-    .then(res => {
-      if (res.ok) {
-        img.src = caminhoImagem;
-        img.style.display = "block";
-      } else {
-        console.warn("Imagem não encontrada:", caminhoImagem);
-        img.style.display = "none";
-      }
-    })
-    .catch(() => {
+  function tentarProximaExtensao(i) {
+    if (i >= extensoes.length) {
+      console.warn("Imagem não encontrada para:", nomeNormalizado);
       img.style.display = "none";
-    });
+      return;
+    }
+
+    const caminho = `${basePath}pic/${nomeNormalizado}.${extensoes[i]}`;
+
+    fetch(caminho)
+      .then(res => {
+        if (res.ok) {
+          img.src = caminho;
+          img.style.display = "block";
+        } else {
+          tentarProximaExtensao(i + 1);
+        }
+      })
+      .catch(() => tentarProximaExtensao(i + 1));
+  }
+
+  tentarProximaExtensao(0);
 }
 
 // Upload Excel

@@ -67,26 +67,18 @@ html{
     border:none;
     margin-bottom: 70px;
 }
-   
-   
+    
 .main-container{
-    /* background-image: url(../img/desktop1.jpg); */
     filter: drop-shadow(8px 8px 4px black);
     position: relative;
-    /* background-image: linear-gradient(to right, #fff, orange); */
     background: #fff;
-    /* background: transparent;
-    backdrop-filter: blur(20px); */
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     width: 950px;
-    height: 440px;    
-    border: none;
+    height: 400px;    
     border-radius: 10px;
-    /* border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px; */
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
     margin: 100px auto;
     /* padding: 10px 70px; */
@@ -111,28 +103,31 @@ body{
 
 @keyframes changeBackgroundImage{
     0%{
-        background-image: url('../img/desktop1.jpg'), url('../img/desktop2.jpg');
+        background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'), url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
     }
     25%{
-        background-image: url('../img/desktop2.jpg'), url('../img/desktop3.jpg');
+        background-image: url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80');
     }
     50%{
-        background-image: url('../img/desktop4.jpg'), url('../img/desktop3.jpg');
+        background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80'), url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80');
     }
     75%{
-        background-image: url('../img/desktop3.jpg'), url('../img/desktop4.jpg');
+        background-image: url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'), url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
     }
     100%{
-        background-image: url('../img/desktop1.jpg');
+        background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
     }
 }
-    
+   
 .crachas{
     position: relative;
     width: 190px;
     height: 190px;
     margin: auto;
+    object-fit: cover;
     border-radius: 50%;
+    border: 4px solid #f97316;
+    box-shadow: 0 0 30px rgba(249,115,22,.4); 
 }
 
 ul{
@@ -155,7 +150,7 @@ ul li .icon{
     margin: 0 60px;
 }
 
-#truck{
+.truck{
     transform: scaleX(-1);
 }
 
@@ -168,6 +163,7 @@ ul li .text {
 
 /* Barra de progresso */
 ul li .progress{
+    justify-content: center;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -181,18 +177,11 @@ ul li .progress{
     transition: background-color 0.70s ease, color 0.70s ease;
 }
 
-.progress::after{
-    content: "";
-    position: absolute;
-    width: 125px;
-    height: 5px;
-    background-color: rgba(68, 68, 68, 0.781);
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background-color 0.90s ease, width 0.90s ease;
+.progress:hover {
+    box-shadow:
+        0 0 0 3px rgba(255, 71, 50, .35),
+        0 0 12px rgba(255, 71, 50, .7);    
 }
-
 
 /*Inverter a animação da barra para esquerda
 .progress::after {
@@ -266,13 +255,6 @@ li .active::after {
     animation: fillLine 0.6s ease ;
 }
 
-/* Inverter a animação da barra para esquerda
-    .progress.active::after {
-    background-color: #ff4732;
-    transform: translateY(-50%) scaleX(1);  cresce para a direita
-}*/
-
-
 @keyframes fillLine {
     from { width: 0; }
     to { width: 125px; }
@@ -282,41 +264,6 @@ li .active::after {
 .one::after {
     width: 0;
     height: 0;
-}
-
-/* Responsivo para mobile (vertical) */
-@media(max-width: 600px) {
-ul {
-    flex-direction: column;
-    margin-left: 0;
-}
-
-ul li {
-    flex-direction: row;
-    align-items: center;
-}
-
-.progress::after {
-    width: 5px;
-    height: 40px;
-    bottom: 30px;
-    left: 50%;
-    top: auto;
-    transform: translateX(-50%);
-}
-
-.progress.active::after {
-    animation: fillLineVertical 0.6s ease forwards;
-}
-
-@keyframes fillLineVertical {
-    from { height: 0; }
-    to { height: 40px; }
-}
-
-.one::after {
-    height: 0;
-}
 }
 
 ul li .active p{
@@ -329,11 +276,7 @@ ul li .active .uil{
     display: flex;
 }
 
-.truck{
-    transform: scaleX(-1);
-}
-   
-   
+/* Responsivo para mobile (vertical) */
 @media(max-width: 600px){
     main{
         width: 100vw;
@@ -342,16 +285,24 @@ ul li .active .uil{
         display: flex;
     }
     .main-container{
+        flex-direction: column !important;
         padding: 0;
-        width: 100vw;
+        width: 100%;
+        align-items: center;
+     /*Para mostrar a foto novente: comente align-items e display none e descomente: width e height*/
+    }   
+    .crachas {
+        /* width: 140px;
+        height: auto; */
+        display: none !important; /*Para ocultar*/
     }
-    ul{
+     ul{
         flex-direction: column;
         margin-left: 0;
- 
     }
     ul li{
         flex-direction: row;
+        align-items: center;
     }
     ul li .progress{
         margin: 0 30px;
@@ -359,17 +310,49 @@ ul li .active .uil{
     .progress::after{
         width: 5px;
         height: 40px;
-        bottom: 30px;
+        top: 30px;
         left: 50%;
         transform: translateX(-50%);
         z-index: -1;
-    }
+    } 
     .one::after{
-        height: 0;
+        height: 
+        0;
+    }
+    .progress.active::after {
+    animation: fillLineVertical 0.6s ease forwards;
+    }
+    @keyframes fillLineVertical {
+        from { height: 0; }
+        to { height: 40px; }
+    }
+     ul li:last-child .progress::after{
+        display: none;
     }
     ul li .icon{
-        font-size: 30px;
+        font-size: 28px;
         margin: 15px 0;
     }
-   
+   ul li .text{
+    font-size: 15px; /*teste apagar*/
+    font-weight: 600;
+    color: #ff4732;
+    }
+    #coletado,
+    #preparacao,
+    #confeccionado,
+    #enviado,
+    #transito,
+    #entregue {
+    margin-left: 3px; 
+  
+    }
+    #coletado::before,
+    #preparacao::before,
+    #confeccionado::before,
+    #enviado::before,
+    #transito::before,
+    #entregue::before {
+    content: " • ";
+    } 
 }
