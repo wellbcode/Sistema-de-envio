@@ -51,7 +51,46 @@ function preencherCampos(nome) {
     carregarImagem(nome); // <- chamada correta
 }
  
-//Carrega imagem da pessoa
+// //Carrega imagem da pessoa
+// function carregarImagem(nome) {
+//   const img = document.getElementById("fotoPessoa");
+
+//   const nomeNormalizado = nome
+//     .normalize("NFD")
+//     .replace(/[\u0300-\u036f]/g, "")
+//     .replace(/\s/g, "")
+//     .toLowerCase();
+
+//   const basePath = window.location.hostname.includes("github.io")
+//     ? "/acompanhar-envio-demo/pic"
+//     : "./";
+
+//   const extensoes = ["jpg", "png"];
+
+//   function tentarProximaExtensao(i) {
+//     if (i >= extensoes.length) {
+//       console.warn("Imagem não encontrada para:", nomeNormalizado);
+//       img.style.display = "none";
+//       return;
+//     }
+
+//     const caminho = `${basePath}pic/${nomeNormalizado}.${extensoes[i]}`;
+
+//     fetch(caminho)
+//       .then(res => {
+//         if (res.ok) {
+//           img.src = caminho;
+//           img.style.display = "block";
+//         } else {
+//           tentarProximaExtensao(i + 1);
+//         }
+//       })
+//       .catch(() => tentarProximaExtensao(i + 1));
+//   }
+
+//   tentarProximaExtensao(0);
+// }
+
 function carregarImagem(nome) {
   const img = document.getElementById("fotoPessoa");
 
@@ -61,10 +100,7 @@ function carregarImagem(nome) {
     .replace(/\s/g, "")
     .toLowerCase();
 
-  const basePath = window.location.hostname.includes("github.io")
-    ? "/acompanhar-envio-demo/pic"
-    : "./";
-
+  const basePath = "./pic/";
   const extensoes = ["jpg", "png"];
 
   function tentarProximaExtensao(i) {
@@ -74,7 +110,7 @@ function carregarImagem(nome) {
       return;
     }
 
-    const caminho = `${basePath}pic/${nomeNormalizado}.${extensoes[i]}`;
+    const caminho = `${basePath}${nomeNormalizado}.${extensoes[i]}`;
 
     fetch(caminho)
       .then(res => {
