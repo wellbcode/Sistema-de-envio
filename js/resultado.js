@@ -94,7 +94,7 @@ function aplicarEstilo(res, nome, pagina, funcional) {
     iframe.src = `${pagina}?modo=status&fun=${funcional}&nome=${encodeURIComponent(nome)}`;
    //iframe.src = `${pagina}?modo=status&fun=${funcional}&nome=${encodeURIComponent(nome)}`;
   //iframe.src = "/acompanhar-envio-demo/main.html?modo=status&fun=" + funcional + "&nome=" + encodeURIComponent(nome);
-     iframe.src = "main.html?modo=status&fun=" + funcional + "&nome=" + encodeURIComponent(nome);
+     iframe.src = "/acompanhar-envio-demo/main.html?modo=status&fun=" + funcional + "&nome=" + encodeURIComponent(nome);
    //document.body.appendChild(iframe);
    res.appendChild(iframe);
 
