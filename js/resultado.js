@@ -2,7 +2,7 @@
     const f = document.querySelector('#fun');
     const fun = String(f.value);
     const res = document.querySelector('#res');
-    
+  
  
     if (!fun || fun === "0") {
         Swal.fire({
@@ -80,6 +80,20 @@
             text: 'Verifique e digite novamente.',
         });
     }
+}
+
+/*Botão teclar enter*/
+document.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+        verificar();
+    }
+});
+
+/*Botão limpar imputs*/
+function limpar() {
+    document.getElementById("fun").value = "";
+    document.getElementById("res").innerHTML = "";
+    document.getElementById("fun").focus();
 }
  
 function aplicarEstilo(res, nome, pagina, funcional) {

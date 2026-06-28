@@ -14,7 +14,7 @@
     <title>Página de consuta - Sistema de Acompanhamento de Credenciais</title>
 </head>
 <body>
-          <section>
+    <section>
         <div class="head">
             <p class="head_1"><span>Bem-vindo(a)!</span> Acompanhe o Status do <span>seu pedido <i class="icon uil uil-selfie"></i></span></p>
             <marquee>
@@ -27,13 +27,14 @@
                 <i class="uil uil-building building"></i>
                 <label for="fun">Funcional:</label>
                 <input id="fun" type="text"  name="fun" maxlength="9" placeholder="Digite aqui" required  aria-required="true" >
+                            <input class="btn" id="button" type="button" value="Verificar" onclick="verificar()">
+            <!-- BOTÃO LIMPAR -->
+            <input class="btn" id="btnLimpar" type="button" value="Limpar" onclick="limpar()">
             </div>
 
             <h1>🔶 WBS - Solutions</h1>
 
             <div id="res"></div>
-
-            <input id="button" type="button" value="Verificar" onclick="verificar()">
         </div>
     </section>
 
