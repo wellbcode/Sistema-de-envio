@@ -212,11 +212,15 @@ iframe{
     width:90%;
     box-sizing:border-box;
     margin-bottom:0;
+    font-size: 16px;
+    padding: 14px;
 }
  .btn{
    display: block;
     width: 90%;
-    margin: 8px auto;
+    margin: 1px auto;
+    font-size: 16px;
+    padding: 16px;
 }
 
  #res{
@@ -227,9 +231,10 @@ iframe{
 .container h1{
   font-size: 15px;
   text-align: center;
+  margin: 10px auto;
 }
    iframe {
-    margin-top: 80px;
+    margin-top: 105px;
 }
 } 
 
