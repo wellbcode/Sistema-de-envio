@@ -90,11 +90,13 @@ document.addEventListener("keydown", function(e){
 });
 
 /*Botão limpar imputs*/
-function limpar() {
-    document.getElementById("fun").value = "";
-    document.getElementById("res").innerHTML = "";
-    document.getElementById("fun").focus();
-}
+    document.getElementById("btnLimpar").addEventListener("click", limpar);
+
+    function limpar() {
+        document.getElementById("fun").value = "";
+        document.getElementById("res").innerHTML = "";
+        document.getElementById("fun").focus();
+    }
  
 function aplicarEstilo(res, nome, pagina, funcional) {
     document.body.style.backgroundSize = "cover";
@@ -105,10 +107,11 @@ function aplicarEstilo(res, nome, pagina, funcional) {
     const iframe = document.createElement('iframe');
     iframe.style.overflow = 'hidden';
     iframe.setAttribute('scrolling', 'no');
-   // iframe.src = `${pagina}?modo=status&fun=${funcional}&nome=${encodeURIComponent(nome)}`;
+    //iframe.src = `${pagina}?modo=status&fun=${funcional}&nome=${encodeURIComponent(nome)}`;
    //iframe.src = `${pagina}?modo=status&fun=${funcional}&nome=${encodeURIComponent(nome)}`;
   //iframe.src = "/acompanhar-envio-demo/main.html?modo=status&fun=" + funcional + "&nome=" + encodeURIComponent(nome);
-     iframe.src = "/acompanhar-envio-demo/main.html?modo=status&fun=" + funcional + "&nome=" + encodeURIComponent(nome);
+     //iframe.src = "/acompanhar-envio-demo/main.html?modo=status&fun=" + funcional + "&nome=" + encodeURIComponent(nome);
+     iframe.src = "./main.html?modo=status&fun=" + funcional + "&nome=" + encodeURIComponent(nome);
    //document.body.appendChild(iframe);
    res.appendChild(iframe);
 
