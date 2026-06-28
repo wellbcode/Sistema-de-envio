@@ -105,7 +105,7 @@ function aplicarEstilo(res, nome, pagina, funcional) {
     const iframe = document.createElement('iframe');
     iframe.style.overflow = 'hidden';
     iframe.setAttribute('scrolling', 'no');
-    iframe.src = `${pagina}?modo=status&fun=${funcional}&nome=${encodeURIComponent(nome)}`;
+   // iframe.src = `${pagina}?modo=status&fun=${funcional}&nome=${encodeURIComponent(nome)}`;
    //iframe.src = `${pagina}?modo=status&fun=${funcional}&nome=${encodeURIComponent(nome)}`;
   //iframe.src = "/acompanhar-envio-demo/main.html?modo=status&fun=" + funcional + "&nome=" + encodeURIComponent(nome);
      iframe.src = "/acompanhar-envio-demo/main.html?modo=status&fun=" + funcional + "&nome=" + encodeURIComponent(nome);
