@@ -91,41 +91,41 @@ function preencherCampos(nome) {
 //   tentarProximaExtensao(0);
 // }
 
-function carregarImagem(nome) {
-  const img = document.getElementById("fotoPessoa");
+// function carregarImagem(nome) {
+//   const img = document.getElementById("fotoPessoa");
 
-  const nomeNormalizado = nome
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s/g, "")
-    .toLowerCase();
+//   const nomeNormalizado = nome
+//     .normalize("NFD")
+//     .replace(/[\u0300-\u036f]/g, "")
+//     .replace(/\s/g, "")
+//     .toLowerCase();
 
-  const basePath = "pic/";
-  const extensoes = ["jpg", "png"];
+//   const basePath = "pic/";
+//   const extensoes = ["jpg", "png"];
 
-  function tentarProximaExtensao(i) {
-    if (i >= extensoes.length) {
-      console.warn("Imagem não encontrada para:", nomeNormalizado);
-      img.style.display = "none";
-      return;
-    }
+//   function tentarProximaExtensao(i) {
+//     if (i >= extensoes.length) {
+//       console.warn("Imagem não encontrada para:", nomeNormalizado);
+//       img.style.display = "none";
+//       return;
+//     }
 
-    const caminho = `${basePath}${nomeNormalizado}.${extensoes[i]}`;
+//     const caminho = `${basePath}${nomeNormalizado}.${extensoes[i]}`;
 
-    fetch(caminho)
-      .then(res => {
-        if (res.ok) {
-          img.src = caminho;
-          img.style.display = "block";
-        } else {
-          tentarProximaExtensao(i + 1);
-        }
-      })
-      .catch(() => tentarProximaExtensao(i + 1));
-  }
+//     fetch(caminho)
+//       .then(res => {
+//         if (res.ok) {
+//           img.src = caminho;
+//           img.style.display = "block";
+//         } else {
+//           tentarProximaExtensao(i + 1);
+//         }
+//       })
+//       .catch(() => tentarProximaExtensao(i + 1));
+//   }
 
-  tentarProximaExtensao(0);
-}
+//   tentarProximaExtensao(0);
+// }
 
 // Upload Excel
 document.getElementById("uploadExcel").addEventListener("change", function(e) {
@@ -156,6 +156,47 @@ document.getElementById("uploadExcel").addEventListener("change", function(e) {
   };
   reader.readAsArrayBuffer(file);
 });
+
+const basePath = "pic/";
+const extensoes = ["jpg", "png"];
+
+function carregarImagem(nome) {
+  const img = document.getElementById("fotoPessoa");
+
+  const nomeNormalizado = nome
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s/g, "")
+    .toLowerCase();
+
+  let i = 0;
+
+  function tentarProximaExtensao() {
+    if (i >= extensoes.length) {
+      console.log("Imagem não encontrada para:", nomeNormalizado);
+      img.src = "pic/default.png"; // fallback opcional
+      return;
+    }
+
+    const ext = extensoes[i];
+    const caminho = `${basePath}${nomeNormalizado}.${ext}`;
+
+    const teste = new Image();
+
+    teste.onload = () => {
+      img.src = caminho; // achou a imagem
+    };
+
+    teste.onerror = () => {
+      i++;
+      tentarProximaExtensao(); // tenta próxima extensão
+    };
+
+    teste.src = caminho;
+  }
+
+  tentarProximaExtensao();
+}
  
 // Seleção de pessoa
 document.getElementById("selectPessoa").addEventListener("change", function() {
